@@ -24,7 +24,7 @@ def second_anagram?(str1, str2)
 end
 
 # p second_anagram?('elvis', 'lives')
-
+#n + n => n
 def third_anagram?(str1, str2)
   alphabet = ('a'..'z').to_a
   result1 = ''
@@ -54,16 +54,16 @@ end
 
 # p fourth_anagram?('elvis', 'lives')
 
-
+#O(n)
 def bonus_anagram?(str1, str2)
   alphabet = ('a'..'z').to_a
   hash = {}
   alphabet.each do |letters|
     hash[letters] += 1 if letters.include?(str1)
-    hash[letters] += 1 if letters.include?(str2)
+    hash[letters] -= 1 if letters.include?(str2)
   end
 
-  hash.all? {|k,v| v > 2}
+  hash.empty?
 end
 
 p bonus_anagram?('elvis', 'lives')
